@@ -14,7 +14,7 @@ import WhatsAppFloat from "../components/WhatsAppFloat";
 
 export default function Home() {
   return (
-    <main>
+    <main id="top">
       <ScrollReveal />
       <AnnouncementBar />
       <div className="shell">
