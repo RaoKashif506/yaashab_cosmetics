@@ -418,3 +418,17 @@ body:has(#ritual:target) .nav .nav-links>a[href="#ritual"],body:has(#ingredients
 .order-success{text-align:center;padding-block:clamp(38px,8vw,70px)}.order-success>.eyebrow{justify-content:center;margin-top:20px}.success-mark{display:grid;place-items:center;width:58px;height:58px;margin:auto;border-radius:50%;background:#f8e5eb;color:var(--rose);font-size:28px}.order-success .order-lead{max-width:410px;margin:0 auto 26px}.success-actions{display:grid;justify-items:center;gap:12px}.success-actions .button{min-width:230px}.button-outline{border:1px solid #d9bbc5;background:#fff;color:var(--ink)}.order-whatsapp{margin-top:5px;color:var(--rose);font-size:11px;text-decoration:underline;text-underline-offset:4px}
 .order-product span{max-width:190px;line-height:1.5}
 
+/* Keep ingredient content readable as the available width decreases. */
+.ingredient-card{min-width:0}
+.ingredient-card h3,.ingredient-card p{overflow-wrap:anywhere}
+@media(max-width:900px){
+  .ingredient-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ingredient-grid .ingredient-card,
+  .ingredient-grid .ingredient-card:nth-child(4),
+  .ingredient-grid .ingredient-card:nth-child(5){grid-column:auto}
+}
+@media(max-width:650px){
+  .ingredient-grid{grid-template-columns:1fr}
+  .ingredient-card{min-height:0;padding:24px 20px}
+  .ingredient-card p{max-width:34rem}
+}
