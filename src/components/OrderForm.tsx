@@ -41,7 +41,7 @@ export default function OrderForm() {
             <label>Full name<input name="name" autoComplete="name" required placeholder="Your name" /></label>
             <label>Contact number<input name="phone" type="tel" autoComplete="tel" required placeholder="03XX XXXXXXX" /></label>
             <label>Delivery address<textarea name="address" autoComplete="street-address" required rows={3} placeholder="House, street, area and city" /></label>
-            <div className="quantity-row"><label htmlFor="quantity">Quantity</label><div className="quantity-control"><button type="button" aria-label="Decrease quantity" onClick={() => setQuantity((n) => Math.max(1, n - 1))}>−</button><output id="quantity">{quantity}</output><button type="button" aria-label="Increase quantity" onClick={() => setQuantity((n) => n + 1)}>+</button></div></div>
+            <div className="quantity-row"><label htmlFor="quantity">Quantity</label><div className="quantity-control"><button type="button" aria-label="Decrease quantity" onClick={() => setQuantity((n) => Math.max(1, n - 1))}>−</button><output id="quantity">{quantity}</output><button type="button" aria-label="Increase quantity" onClick={() => setQuantity((n) => Math.min(10, n + 1))} disabled={quantity >= 10}>+</button></div></div>
             <div className="order-total"><span>Total</span><strong>PKR {(quantity * unitPrice).toLocaleString("en-PK")}</strong></div>
             <button className="button button-dark buy-button" type="submit">Buy now <span>→</span></button>
           </form>

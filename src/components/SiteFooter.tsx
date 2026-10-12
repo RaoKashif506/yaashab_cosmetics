@@ -16,7 +16,7 @@ export default function SiteFooter() {
           className="footer-cta text-[15px] font-semibold"
           href={orderUrl}
           target="_blank"
-          rel="noreferrer "
+          rel="noreferrer"
         >
           Let’s talk skincare
         </a>

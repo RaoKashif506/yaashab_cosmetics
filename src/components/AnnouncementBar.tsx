@@ -2,7 +2,7 @@
 export default function AnnouncementBar() {
   const message = (
     <>
-      A little glow goes a long way <strong className="announcement-brand">YAASHAB_COSMTICS</strong> Discover your new daily ritual
+      A little glow goes a long way <strong className="announcement-brand">YAASHAB_COSMETICS</strong> Discover your new daily ritual
     </>
   );
 
