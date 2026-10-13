@@ -1,5 +1,6 @@
 
 import { faqs, orderUrl } from "../lib/storefront";
+import Image from "next/image";
 
 export default function FaqSection() {
   return (
@@ -23,6 +24,17 @@ export default function FaqSection() {
         >
           Still curious? Chat with us
         </a>
+
+        <div className="faq-image-frame rounded-4xl">
+          <Image
+            className="faq-image"
+            src="/images/p6.jpeg"
+            alt="Drop Glow Slay serum and box surrounded by water droplets"
+            width={1024}
+            height={1536}
+            loading="lazy"
+          />
+        </div>
       </div>
 
       <div className="faq-list">

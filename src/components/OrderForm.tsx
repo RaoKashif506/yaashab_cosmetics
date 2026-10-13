@@ -31,6 +31,12 @@ export default function OrderForm() {
 
   return (
     <main className="order-page">
+      <div className="order-navigation">
+        <Link className="order-back" href="/">
+          <span aria-hidden="true">←</span>
+          Back to home
+        </Link>
+      </div>
       {!complete ? (
         <section className="order-card">
           <p className="eyebrow">YOUR GLOW STARTS HERE</p>

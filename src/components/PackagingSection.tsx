@@ -34,13 +34,16 @@ export default function PackagingSection() {
             className={`photo-card ${photo.className}`}
             key={photo.src}
           >
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              width={photo.width}
-              height={photo.height}
-              loading="lazy"
-            />
+            <div className="gallery-photo-frame rounded-4xl">
+              <Image
+                className="gallery-photo rounded-4xl"
+                src={photo.src}
+                alt={photo.alt}
+                width={photo.width}
+                height={photo.height}
+                loading="lazy"
+              />
+            </div>
 
             <figcaption>
               <span>{photo.number}</span> {photo.title}
@@ -62,7 +65,6 @@ export default function PackagingSection() {
               loop
               playsInline
               preload="metadata"
-              poster={video.poster}
               aria-label={video.alt}
             >
               <source
@@ -71,7 +73,6 @@ export default function PackagingSection() {
               />
             </video>
 
-            <figcaption>{video.title}</figcaption>
           </figure>
         ))}
       </div>

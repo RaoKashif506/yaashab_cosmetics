@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ShaderBackground from "../components/ShaderBackground";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -21,7 +22,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <ShaderBackground />
+        <div className="site-content">{children}</div>
+      </body>
     </html>
   );
 }

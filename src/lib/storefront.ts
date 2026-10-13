@@ -35,11 +35,14 @@ export const faqs = [
 
 export const packagingPhotos = [
   { number: "01", title: "A closer look", src: "/images/serum-detail.webp", alt: "Close-up of the Drop Glow Slay bottle with gold lettering", width: 784, height: 1168, className: "photo-detail" },
-  { number: "02", title: "Thoughtful details", src: "/images/bottle-construction.webp", alt: "Exploded view of the serum dropper, collar, pipette and glass bottle", width: 1230, height: 1278, className: "photo-construction" },
+  { number: "02", title: "Thoughtful details", src: "/images/p6.jpeg", alt: "Drop Glow Slay serum and box surrounded by water droplets", width: 1024, height: 1536, className: "photo-construction" },
   { number: "03", title: "Your daily ritual", src: "/images/serum-application.webp", alt: "Drop Glow Slay serum bottle in soft studio light", width: 768, height: 1365, className: "photo-application" },
 ];
 
 export const productVideos = [
-  { title: "In a softer light", src: "/videos/serum-blooms.mp4", poster: "/images/serum-blooms-poster.webp", alt: "Video of two Drop Glow Slay bottles with white flowers" },
-  { title: "A closer look at the bottle", src: "/videos/serum-stone.mp4", poster: "/images/serum-stone-poster.webp", alt: "Video of the Drop Glow Slay bottle on dark stone" },
+  { title: "Product video 04", src: "/videos/4.mp4", alt: "Drop Glow Slay product video 4" },
+  { title: "Product video 06", src: "/videos/6.mp4", alt: "Drop Glow Slay product video 6" },
+  { title: "Product video 08", src: "/videos/8.mp4", alt: "Drop Glow Slay product video 8" },
+  { title: "Product video 10", src: "/videos/10.mp4", alt: "Drop Glow Slay product video 10" },
+  { title: "Product video 12", src: "/videos/12.mp4", alt: "Drop Glow Slay product video 12" },
 ];

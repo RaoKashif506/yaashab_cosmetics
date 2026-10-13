@@ -46,14 +46,11 @@ export default function HeroSection() {
         >
           <Image
             className="hero-photo"
-            src="/images/serum-hero.webp"
-            alt="Drop Glow Slay serum bottles with droppers among soft white flowers"
+            src="/images/p7.jpeg"
+            alt="Yaashab Cosmetics Drop Glow Slay serum"
             width={784}
             height={1168}
             priority/>
-
-          <div className="art-orbit orbit-one" />
-          <div className="art-orbit orbit-two" />
 
           <div className="art-sun">✳</div>
 

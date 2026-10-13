@@ -10,7 +10,6 @@ import RoutineSection from "../components/RoutineSection";
 import SiteFooter from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
 import ScrollReveal from "../components/ScrollReveal";
-import WhatsAppFloat from "../components/WhatsAppFloat";
 
 export default function Home() {
   return (
@@ -29,7 +28,6 @@ export default function Home() {
         <FaqSection />
         <SiteFooter />
       </div>
-      <WhatsAppFloat />
     </main>
   );
 }
