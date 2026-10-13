@@ -48,8 +48,8 @@ export default function HeroSection() {
             className="hero-photo"
             src="/images/p7.jpeg"
             alt="Yaashab Cosmetics Drop Glow Slay serum"
-            width={784}
-            height={1168}
+            width={970}
+            height={1600}
             priority/>
 
           <div className="art-sun">✳</div>

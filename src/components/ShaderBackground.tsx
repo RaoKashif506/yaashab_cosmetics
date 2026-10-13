@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 
 const vertexShader = `
@@ -112,7 +112,8 @@ function ShaderPlane() {
   const mesh = useRef<THREE.Mesh>(null);
   const mouse = useRef(new THREE.Vector2());
   const target = useRef(new THREE.Vector2());
-  const { size } = useThree();
+  const { invalidate, size } = useThree();
+  const reducedMotion = useReducedMotion();
   const uniforms = useMemo(() => ({
     u_time: { value: 0 },
     u_resolution: { value: new THREE.Vector3(1, 1, 1) },
@@ -123,17 +124,24 @@ function ShaderPlane() {
   useEffect(() => {
     const onMove = (event: MouseEvent) => {
       target.current.set((event.clientX / window.innerWidth) * 2 - 1, -(event.clientY / window.innerHeight) * 2 + 1);
+      if (reducedMotion) invalidate();
     };
     window.addEventListener("mousemove", onMove, { passive: true });
     return () => window.removeEventListener("mousemove", onMove);
-  }, []);
+  }, [invalidate, reducedMotion]);
 
   useFrame((state) => {
     if (!mesh.current) return;
     const material = mesh.current.material as THREE.ShaderMaterial;
-    material.uniforms.u_time.value = state.clock.elapsedTime * .65;
+    if (!reducedMotion) {
+      material.uniforms.u_time.value = state.clock.elapsedTime * .65;
+    }
     material.uniforms.u_resolution.value.set(size.width, size.height, 1);
-    mouse.current.lerp(target.current, .025);
+    if (reducedMotion) {
+      mouse.current.copy(target.current);
+    } else {
+      mouse.current.lerp(target.current, .025);
+    }
     material.uniforms.u_mouse.value.set(mouse.current.x, mouse.current.y, 0, 0);
   });
 
@@ -146,12 +154,15 @@ function ShaderPlane() {
 }
 
 export default function ShaderBackground() {
+  const reducedMotion = useReducedMotion();
+
   return (
     <div className="shader-background" aria-hidden="true">
       <Canvas
         orthographic
         camera={{ position: [0, 0, 1], zoom: 1 }}
         dpr={[1, 1.5]}
+        frameloop={reducedMotion ? "demand" : "always"}
         gl={{ alpha: true, antialias: true }}
         style={{ backgroundColor: "#fff" }}
       >
@@ -159,4 +170,18 @@ export default function ShaderBackground() {
       </Canvas>
     </div>
   );
+}
+
+function useReducedMotion() {
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => setReducedMotion(mediaQuery.matches);
+    updatePreference();
+    mediaQuery.addEventListener("change", updatePreference);
+    return () => mediaQuery.removeEventListener("change", updatePreference);
+  }, []);
+
+  return reducedMotion;
 }
