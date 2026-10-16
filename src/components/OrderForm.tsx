@@ -32,7 +32,7 @@ export default function OrderForm() {
   return (
     <main className="order-page">
       <div className="order-navigation">
-        <Link className="order-back" href="/">
+        <Link className="button button-outline order-back" href="/">
           <span aria-hidden="true">←</span>
           Back to home
         </Link>

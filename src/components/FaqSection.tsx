@@ -1,4 +1,3 @@
-
 import { faqs, orderUrl } from "../lib/storefront";
 import Image from "next/image";
 
@@ -15,15 +14,6 @@ export default function FaqSection() {
           <br />
           <em>Honest answers.</em>
         </h2>
-
-        <a
-          className="button button-dark product-action-button rounded-4xl"
-          href={orderUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Still curious? Chat with us
-        </a>
 
         <div className="faq-image-frame rounded-4xl">
           <Image

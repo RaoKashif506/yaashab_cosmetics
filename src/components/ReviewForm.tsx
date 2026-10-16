@@ -2,8 +2,7 @@
 "use client";
 
 import type { FormEvent } from "react";
-
-const whatsappNumber = "923134268125";
+import { whatsappNumber } from "../lib/storefront";
 
 const ratingNames = [
   "Far from better",
